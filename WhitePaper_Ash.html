@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ash White Paper - Proof of Burn Protocol</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: #fff;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #e67e22;
+            margin-top: 30px;
+            border-left: 5px solid #e67e22;
+            padding-left: 15px;
+        }
+        .header-info {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        .abstract {
+            font-style: italic;
+            background: #fdf2e9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8em;
+            text-align: center;
+            color: #bdc3c7;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .contract-address {
+            background: #eee;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ASH ($ASH) White Paper</h1>
+        <div class="header-info">
+            <strong>The Computational Friction Loom & Proof of Burn Protocol</strong><br>
+            Network: Binance Smart Chain (BSC)<br>
+            Contract: <span class="contract-address">0xfA612BA5ba0547E9088df76dcAeE611e78ACb9B8</span>
+        </div>
+
+        <div class="abstract">
+            <strong>1. Abstract:</strong> Ash ($ASH) is a novel decentralized asset on the Binance Smart Chain (BSC) that introduces the "Computational Friction Loom" (CFL) mechanism. Unlike traditional tokens that rely solely on speculative demand, Ash derives its intrinsic value from the deliberate destruction of network resources (gas) during periods of low congestion. This Proof of Burn (PoB) model transforms "network idle time" into a scarce digital commodity.
+        </div>
+
+        <h2>2. Introduction: The Problem of Idle Capacity</h2>
+        <p>Blockchains like BSC experience "breathing" cycles. During peak hours, gas prices skyrocket, making transactions expensive. Conversely, during "Dead Zones" (quiet periods), the network is underutilized, and gas prices drop to their absolute minimum. Ash capitalizes on this inefficiency by capturing the "latent energy" of these low-cost periods and storing it in a transferable digital token.</p>
+
+        <h2>3. Core Mechanism: The Computational Friction Loom (CFL)</h2>
+        <p>The <code>weaveAsh</code> function in the Ash smart contract is the engine of the CFL. It functions through:</p>
+        <ul>
+            <li><strong>Gas Scavenging:</strong> Monitoring for gas prices below 1.05 Gwei.</li>
+            <li><strong>Computational Friction:</strong> Executing complex on-chain calculations to consume and "burn" gas energy.</li>
+            <li><strong>Minting:</strong> Issuing $ASH tokens as a proof of that resource destruction.</li>
+        </ul>
+
+        <h2>4. Tokenomics: Scarcity and Production Cost</h2>
+        <p>Ash is built on the BEP-20 standard. Its supply is controlled by the cost of production. Unlike "meme coins," Ash has an intrinsic floor price linked to the actual cost of gas at the time of its creation. Every $ASH token in existence represents real computational work performed on the BSC network.</p>
+
+        <h2>5. Market Dynamics: The Gas Hedge</h2>
+        <p>As the BSC network grows, gas will become a more valuable resource. $ASH acts as a hedge; when gas is cheap today, you mint $ASH. When gas becomes expensive in the future, the production of new $ASH stops, making existing tokens more valuable as a proven store of network energy.</p>
+
+        <h2>6. Security & Transparency</h2>
+        <p>The Ash contract is open-source and verified on BscScan. Liquidity has been successfully provided to the PancakeSwap V2 pool, ensuring a stable and transparent market for all early adopters and "Ghost Miners."</p>
+
+        <div class="footer">
+            &copy; 2026 Ash Protocol. All rights reserved.<br>
+            <em>Disclaimer: Cryptocurrency investments carry high risk. Perform your own due diligence.</em>
+        </div>
+    </div>
+</body>
+</html>
