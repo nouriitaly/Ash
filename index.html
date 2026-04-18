@@ -1,63 +1,272 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$ASH Token | Singularity Protocol</title>
     <style>
-        body {
-            background-color: #0b0f19;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
+        :root {
+            --primary-glow: #00ffcc;
+            --bg-color: #0b0f19;
+            --surface-color: #1a202c;
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+        }
+        
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        .logo {
-            width: 150px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
-        }
-        h1 {
-            color: #00ffcc;
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            color: #a0aec0;
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-glow);
+        }
+
+        .nav-brand img {
+            width: 40px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 150px 20px 100px;
+            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.05) 0%, transparent 70%);
+        }
+
+        .logo-main {
+            width: 180px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 204, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-glow);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         .btn {
             display: inline-block;
-            background-color: #00ffcc;
-            color: #000;
-            padding: 15px 30px;
+            padding: 15px 35px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 30px;
-            margin-top: 20px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .btn:hover {
+
+        .btn-primary {
+            background-color: var(--primary-glow);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        .btn-primary:hover {
             background-color: #00ccaa;
-            box-shadow: 0 0 15px #00ffcc;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-glow);
+            border: 2px solid var(--primary-glow);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 255, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--primary-glow);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 204, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--surface-color);
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5em; }
+            nav { padding: 15px 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.svg" alt="ASH Logo" class="logo">
+
+    <nav>
+        <div class="nav-brand">
+            <img src="logo.svg" alt="$ASH Logo">
+            $ASH
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#features">Ecosystem</a>
+            <a href="WhitePaper_Ash.html" target="_blank">Whitepaper</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="logo.svg" alt="Singularity Protocol Logo" class="logo-main">
+        <h1>The <span>$ASH</span> Token</h1>
+        <p>Powering the Singularity Protocol. The next-generation infrastructure for advanced mempool analysis, liquidity gap detection, and automated arbitrage strategies.</p>
         
-        <h1>$ASH Token</h1>
-        <p>مرحباً بك في بروتوكول Singularity.<br>الجيل الجديد من تتبع وتأمين المعاملات على شبكات البلوكتشين وحماية السيولة.</p>
-        
-        <a href="WhitePaper_Ash.html" class="btn">📄 اقرأ الورقة البيضاء (Whitepaper)</a>
-    </div>
+        <div class="btn-group">
+            <a href="WhitePaper_Ash.html" class="btn btn-primary" target="_blank">Read Whitepaper</a>
+            <a href="#about" class="btn btn-secondary">Explore Protocol</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">What is Singularity Protocol?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>The Core Mission</h3>
+                <p>Singularity Protocol is engineered to optimize blockchain transaction efficiency. By providing deep insights into pending transactions, it empowers developers and traders to navigate volatile decentralized markets with precision and speed.</p>
+            </div>
+            <div class="card">
+                <h3>The $ASH Token Utility</h3>
+                <p>$ASH is the native utility and governance token of the ecosystem. It is utilized to access premium algorithmic tools, pay for decentralized node services, and participate in protocol upgrades.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <h2 class="section-title">Protocol Architecture</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Mempool Monitoring</h3>
+                <p>Real-time tracking of pending blockchain transactions. Identify high-value movements and liquidity shifts before they are finalized on the ledger.</p>
+            </div>
+            <div class="card">
+                <h3>Arbitrage Detection</h3>
+                <p>Advanced algorithmic scanning to detect price discrepancies across decentralized exchanges (DEXs), securing highly efficient arbitrage loops.</p>
+            </div>
+            <div class="card">
+                <h3>Maximum Extractable Value (MEV)</h3>
+                <p>Secure and transparent MEV extraction mechanisms designed to protect average users while maximizing efficiency for network validators and sophisticated actors.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Singularity Protocol | $ASH Token. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
-
