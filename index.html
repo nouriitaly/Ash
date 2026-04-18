@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$ASH Token | Singularity Protocol</title>
+    <title>$ASH Token | The Computational Friction Loom</title>
     <style>
         :root {
-            --primary-glow: #00ffcc;
+            --primary-glow: #ffae00; /* لون يعبر عن الاحتراق والرماد/الذهب */
             --bg-color: #0b0f19;
             --surface-color: #1a202c;
             --text-main: #ffffff;
             --text-muted: #a0aec0;
+            --bsc-yellow: #f3ba2f;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', Courier, monospace; /* خط برمجي يعكس طبيعة المشروع */
         }
 
         body {
@@ -25,9 +26,10 @@
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 0%, rgba(255, 174, 0, 0.05) 0%, transparent 70%);
         }
 
-        /* Navigation Bar */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -39,28 +41,32 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+            border-bottom: 1px solid rgba(255, 174, 0, 0.2);
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             font-size: 1.5em;
             font-weight: bold;
             color: var(--primary-glow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .nav-brand img {
-            width: 40px;
+            width: 45px;
+            filter: drop-shadow(0 0 5px var(--primary-glow));
         }
 
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
             margin-left: 30px;
-            font-weight: 500;
+            font-weight: bold;
             transition: color 0.3s ease;
+            text-transform: uppercase;
         }
 
         .nav-links a:hover {
@@ -70,38 +76,45 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 150px 20px 100px;
-            background: radial-gradient(circle at center, rgba(0, 255, 204, 0.05) 0%, transparent 70%);
+            padding: 160px 20px 100px;
         }
 
         .logo-main {
-            width: 180px;
+            width: 200px;
             margin-bottom: 30px;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 204, 0.3));
-            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 174, 0, 0.4));
+            animation: pulse 4s infinite alternate;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(255, 174, 0, 0.4)); }
+            100% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(255, 174, 0, 0.8)); }
         }
 
         .hero h1 {
-            font-size: 4em;
+            font-size: 3.5em;
             margin-bottom: 15px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .hero h1 span {
             color: var(--primary-glow);
         }
 
+        .hero h2 {
+            font-size: 1.5em;
+            color: var(--bsc-yellow);
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
         .hero p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 40px;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         /* Buttons */
@@ -117,39 +130,57 @@
             padding: 15px 35px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 30px;
+            border-radius: 5px;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            border: 1px solid transparent;
         }
 
         .btn-primary {
             background-color: var(--primary-glow);
             color: #000;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+            box-shadow: 0 0 15px rgba(255, 174, 0, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: #00ccaa;
-            box-shadow: 0 0 25px rgba(0, 255, 204, 0.6);
+            background-color: #ff9d00;
+            box-shadow: 0 0 25px rgba(255, 174, 0, 0.6);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: var(--primary-glow);
-            border: 2px solid var(--primary-glow);
+            border: 1px solid var(--primary-glow);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(0, 255, 204, 0.1);
+            background-color: rgba(255, 174, 0, 0.1);
             transform: translateY(-2px);
         }
+
+        /* Code Terminal Section */
+        .terminal {
+            background-color: #050505;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: left;
+            color: #00ff00;
+            font-size: 0.9em;
+            overflow-x: auto;
+        }
+
+        .terminal span.prompt { color: #aaa; }
+        .terminal span.highlight { color: var(--primary-glow); }
 
         /* Sections */
         .section {
             padding: 80px 20px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: auto;
         }
 
@@ -158,6 +189,9 @@
             font-size: 2.5em;
             margin-bottom: 50px;
             color: var(--primary-glow);
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
         }
 
         .grid {
@@ -168,41 +202,63 @@
 
         .card {
             background-color: var(--surface-color);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 174, 0, 0.1);
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--primary-glow);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(0, 255, 204, 0.3);
+            border-color: rgba(255, 174, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: 1.4em;
+            margin-bottom: 20px;
             color: #fff;
+            text-transform: uppercase;
         }
 
         .card p {
             color: var(--text-muted);
             font-size: 1em;
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.7;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             background-color: var(--surface-color);
             color: var(--text-muted);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 50px;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.5em; }
+            .hero h1 { font-size: 2.2em; }
             nav { padding: 15px 20px; }
         }
     </style>
@@ -215,57 +271,73 @@
             $ASH
         </div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#features">Ecosystem</a>
+            <a href="#concept">The Concept</a>
+            <a href="#economics">Tokenomics</a>
             <a href="WhitePaper_Ash.html" target="_blank">Whitepaper</a>
         </div>
     </nav>
 
     <section class="hero">
-        <img src="logo.svg" alt="Singularity Protocol Logo" class="logo-main">
-        <h1>The <span>$ASH</span> Token</h1>
-        <p>Powering the Singularity Protocol. The next-generation infrastructure for advanced mempool analysis, liquidity gap detection, and automated arbitrage strategies.</p>
+        <img src="logo.svg" alt="ASH Logo" class="logo-main">
+        <h1>The <span>$ASH</span> Protocol</h1>
+        <h2>Deployed on Binance Smart Chain (BSC)</h2>
+        
+        <div class="terminal">
+            <p><span class="prompt">Zicola@Zico:~/ash$</span> python loom_bsc.py</p>
+            <p>[*] Initializing Friction Loom Engine on BSC MAINNET...</p>
+            <p>[*] Target Dead Zone: <= <span class="highlight">1.05 Gwei</span></p>
+            <p>[~] Block: 37194820 | Current BSC Gas: 1.000 Gwei</p>
+            <p class="highlight">[>>>] BSC DEAD ZONE DETECTED! Striking...</p>
+            <p>[$$$] Success! Burned 3000000 Gas. Minted $ASH.</p>
+        </div>
+
+        <p>A self-bootstrapping system that transforms blockchain network downtime into a tangible digital asset. No trading, no predictions. Just pure computational friction and Proof of Burn.</p>
         
         <div class="btn-group">
             <a href="WhitePaper_Ash.html" class="btn btn-primary" target="_blank">Read Whitepaper</a>
-            <a href="#about" class="btn btn-secondary">Explore Protocol</a>
+            <a href="#concept" class="btn btn-secondary">System Architecture</a>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <h2 class="section-title">What is Singularity Protocol?</h2>
+    <section id="concept" class="section">
+        <h2 class="section-title">The Computational Friction Loom</h2>
         <div class="grid">
             <div class="card">
-                <h3>The Core Mission</h3>
-                <p>Singularity Protocol is engineered to optimize blockchain transaction efficiency. By providing deep insights into pending transactions, it empowers developers and traders to navigate volatile decentralized markets with precision and speed.</p>
+                <h3>1. The Silent Sniper</h3>
+                <p>Blockchain networks breathe. During peak hours, gas fees soar. But when the network sleeps and fees crash to the Dead Zone (1.05 Gwei on BSC), our autonomous node wakes up. It acts as a silent guardian, monitoring every block created every 3 seconds.</p>
             </div>
             <div class="card">
-                <h3>The $ASH Token Utility</h3>
-                <p>$ASH is the native utility and governance token of the ecosystem. It is utilized to access premium algorithmic tools, pay for decentralized node services, and participate in protocol upgrades.</p>
+                <h3>2. Proof of Burn</h3>
+                <p>When the dead zone is detected, the protocol triggers a smart contract that executes massive, arbitrary computational loops. This intentional friction is designed to do one thing: burn cheap gas. The network's idle energy is consumed.</p>
+            </div>
+            <div class="card">
+                <h3>3. Digital Alchemy</h3>
+                <p>In exchange for the mathematically proven destruction of gas, the smart contract mints $ASH directly to the wallet. $ASH is not created from nothing; it is the physical representation of burned computational effort.</p>
             </div>
         </div>
     </section>
 
-    <section id="features" class="section">
-        <h2 class="section-title">Protocol Architecture</h2>
+    <section id="economics" class="section">
+        <h2 class="section-title">Self-Sustaining Tokenomics</h2>
         <div class="grid">
             <div class="card">
-                <h3>Mempool Monitoring</h3>
-                <p>Real-time tracking of pending blockchain transactions. Identify high-value movements and liquidity shifts before they are finalized on the ledger.</p>
+                <h3>Auto-Bootstrapping LP</h3>
+                <p>The contract is fully autonomous. Upon receiving initial liquidity, it directly calls the PancakeSwap Factory. It creates the trading pair (WBNB/ASH) and adds liquidity automatically, shifting from a script to a living economic system.</p>
             </div>
             <div class="card">
-                <h3>Arbitrage Detection</h3>
-                <p>Advanced algorithmic scanning to detect price discrepancies across decentralized exchanges (DEXs), securing highly efficient arbitrage loops.</p>
+                <h3>The Hedging Mechanism</h3>
+                <p>$ASH acts as a natural index for BSC Gas prices. When the network is cheap, $ASH supply inflates steadily. When the network is congested and expensive, the Loom stops. Minting halts entirely, making existing $ASH highly scarce.</p>
             </div>
             <div class="card">
-                <h3>Maximum Extractable Value (MEV)</h3>
-                <p>Secure and transparent MEV extraction mechanisms designed to protect average users while maximizing efficiency for network validators and sophisticated actors.</p>
+                <h3>Intrinsic Value</h3>
+                <p>Unlike meme tokens, $ASH has a verifiable production cost. Investors and bots acquire $ASH because its scarcity is backed by hard mathematics and the physical limits of the Binance Smart Chain's transaction throughput.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Singularity Protocol | $ASH Token. All Rights Reserved.</p>
+        <p>&copy; 2026 Singularity Protocol | The $ASH Ecosystem.</p>
+        <p style="font-size: 0.9em; margin-top: 10px; color: #555;">Fully Autonomous | 100% Algorithmic</p>
     </footer>
 
 </body>
